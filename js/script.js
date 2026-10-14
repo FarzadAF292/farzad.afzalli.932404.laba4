@@ -48,3 +48,17 @@ alert(`Hello, ${userName}! Welcome to the revenue analysis.`);
 
 // Check that the script is working
 console.log("Daily revenue:", dailyRevenue);
+
+// Count low-revenue days (3,000 rubles or less)
+let lowRevenueDays = 0;
+for (let revenue of dailyRevenue) {
+  if (revenue <= 3000) {
+    lowRevenueDays++;
+  }
+}
+
+// Calculate the percentage of low-revenue days
+const lowRevenuePercentage = (lowRevenueDays / dailyRevenue.length) * 100;
+
+console.log("Low revenue days:", lowRevenueDays);
+console.log("Low revenue percentage:", lowRevenuePercentage.toFixed(2) + "%");

@@ -1,12 +1,13 @@
-console.log("Lab 4 JavaScript file is connected successfully.");
-
 // Daily revenue values in rubles
 const dailyRevenue = [3200, 12500, 7800, 15000, 2800, 9400, 11800];
+
+// Ask the user for their name and show greetings
+const userName = prompt("Enter your name:");
+alert(`Hello, ${userName}! Welcome to the revenue analysis.`);
 
 // Find the maximum daily revenue
 function findMax(revenues) {
   let maxRevenue = revenues[0];
-
   for (let revenue of revenues) {
     if (revenue > maxRevenue) {
       maxRevenue = revenue;
@@ -22,34 +23,21 @@ function filterHighRevenue(revenues) {
   });
 }
 
-// Calculate the total revenue
+// Calculate total revenue
 function calculateSum(revenues) {
   let total = 0;
-
   for (let revenue of revenues) {
     total += revenue;
   }
   return total;
 }
 
+// Main calculations
 const maxRevenue = findMax(dailyRevenue);
 const highRevenueDays = filterHighRevenue(dailyRevenue);
 const totalRevenue = calculateSum(dailyRevenue);
 
-console.log("Maximum revenue:", maxRevenue);
-console.log("High revenue days:", highRevenueDays);
-console.log("Total revenue:", totalRevenue);
-
-// Ask the user for their name
-const userName = prompt("Enter your name:");
-
-// Show a greeting
-alert(`Hello, ${userName}! Welcome to the revenue analysis.`);
-
-// Check that the script is working
-console.log("Daily revenue:", dailyRevenue);
-
-// Count low-revenue days (3,000 rubles or less)
+// Count low-revenue days
 let lowRevenueDays = 0;
 for (let revenue of dailyRevenue) {
   if (revenue <= 3000) {
@@ -57,22 +45,22 @@ for (let revenue of dailyRevenue) {
   }
 }
 
-// Calculate the percentage of low-revenue days
+// Calculate percentages and average
 const lowRevenuePercentage = (lowRevenueDays / dailyRevenue.length) * 100;
 
-console.log("Low revenue days:", lowRevenueDays);
-console.log("Low revenue percentage:", lowRevenuePercentage.toFixed(2) + "%");
-
-// Calculate average revenue
 const averageRevenue = totalRevenue / dailyRevenue.length;
 
-// Final alert with the main result
+// Show main result
 alert(
   `Total revenue: ${totalRevenue} ₽.\n` +
     `High-revenue days: ${highRevenueDays.length}.`,
 );
 
-// Output additional information to the console
+// Output detailed information to console
+console.log("Daily revenue:", dailyRevenue);
+console.log("Maximum revenue:", maxRevenue + " ₽");
+console.log("High revenue days:", highRevenueDays);
+console.log("Total revenue:", totalRevenue + " ₽");
 console.log("Average revenue:", averageRevenue.toFixed(2) + " ₽");
 console.log("Low revenue days:", lowRevenueDays);
 console.log("Low revenue percentage:", lowRevenuePercentage.toFixed(2) + "%");

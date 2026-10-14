@@ -62,3 +62,22 @@ const lowRevenuePercentage = (lowRevenueDays / dailyRevenue.length) * 100;
 
 console.log("Low revenue days:", lowRevenueDays);
 console.log("Low revenue percentage:", lowRevenuePercentage.toFixed(2) + "%");
+
+// Calculate average revenue
+const averageRevenue = totalRevenue / dailyRevenue.length;
+
+// Final alert with the main result
+alert(
+  `Total revenue: ${totalRevenue} ₽.\n` +
+    `High-revenue days: ${highRevenueDays.length}.`,
+);
+
+// Output additional information to the console
+console.log("Average revenue:", averageRevenue.toFixed(2) + " ₽");
+console.log("Low revenue days:", lowRevenueDays);
+console.log("Low revenue percentage:", lowRevenuePercentage.toFixed(2) + "%");
+
+// Additional condition
+if (averageRevenue < 5000) {
+  console.log("It is worth analyzing the reasons for low revenue.");
+}
